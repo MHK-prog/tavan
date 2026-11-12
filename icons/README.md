@@ -1,5 +1,7 @@
-# Icon assets
+# Icon files
 
-`sprite.svg` is the shared SVG symbol sheet for the app icons and decorative dumbbell artwork. The app references symbols with `<use href="./icons/sprite.svg#symbol-id">`; add new icons there and call them through the `icon()` helper in `assets/js/tavan-app.js`.
+Each icon is stored as an editable, standalone SVG named after its original symbol ID. Open the matching file to change its paths, colors, or shape.
 
-The symbols cover navigation, actions, calendar, theme, favorite, reorder, and hero-dumbbell graphics. Charts and the interactive muscle map remain generated in JavaScript because their shapes and contents depend on user data and selection.
+The application loads the 24x24 icons through the `icon()` helper in `assets/js/tavan-app.js`. Most use `currentColor` and inherit the surrounding text color. The decorative home-page dumbbell is `hero-dumbbell.svg`.
+
+Available files: `dashboard`, `workout`, `program`, `library`, `progress`, `body`, `settings`, `plus`, `arrow`, `check`, `clock`, `download`, `edit`, `trash`, `close`, `copy`, `chevron`, `info`, `nutrition`, `reminders`, `calendar`, `sun`, `moon`, `star`, `star-outline`, `up`, `down`, and `hero-dumbbell`.

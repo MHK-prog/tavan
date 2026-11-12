@@ -1,7 +1,7 @@
 (() => {
   'use strict';
   const main = document.querySelector('#main');
-  const version = '1.0.0';
+  const version = '1.0.1';
   const loadJson = async (path) => {
     const url = new URL(path, document.baseURI);
     url.searchParams.set('v', version);

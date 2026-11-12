@@ -24,7 +24,7 @@ Then open `http://localhost:8000`.
 
 - `index.html` ? page shell
 - `assets/css/tavan.css` ? styles
-- `icons/sprite.svg` ? shared icons and dumbbell artwork
+- `icons/*.svg` ? individually editable app icons and dumbbell artwork
 - `assets/js/` ? application modules and loader
 - `data/` ? exercise and USDA food catalogs
 - `.nojekyll` ? tells GitHub Pages to serve files directly

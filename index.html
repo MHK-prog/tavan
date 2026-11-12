@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#2f806a">
+<meta name="description" content="توان، دفتر شخصی تمرین؛ ثبت ست، تکرار، وزنه و اندازه‌های بدن">
+<title>توان — دفتر تمرین شما</title>
+<link rel="stylesheet" href="./assets/css/tavan.css">
+</head>
+<body>
+<div class="app-shell">
+ <aside class="sidebar">
+  <a class="brand" href="#dashboard"><span class="brand-mark">تـ</span><span><strong class="brand-word">توان<span class="brand-dot">.</span></strong><small class="brand-sub">دفتر تمرین شما</small></span></a>
+  <div class="nav-caption">فضای شخصی شما</div><nav id="nav" aria-label="منوی اصلی"></nav>
+  <div class="sidebar-foot"><span class="status-dot"></span> ذخیره روی همین دستگاه<small>هر پیشرفت، از یک تکرار شروع می‌شود.</small><button class="btn ghost small" data-act="backup">دریافت پشتیبان</button></div>
+ </aside>
+ <div class="workspace"><header class="topbar"><span class="breadcrumb">دفتر شخصی <span>/</span> <b id="page-name">نمای کلی</b></span><div class="topbar-actions"><button type="button" id="theme-toggle" class="icon-btn theme-toggle" data-act="theme-toggle" aria-label="تغییر تم"><svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="./icons/sprite.svg#moon"></use></svg></button><span id="header-date" class="tiny muted"></span><span class="avatar" aria-label="حساب شخصی">ت</span></div></header><div id="reminder-status" hidden role="status"></div><main id="main" class="content" tabindex="-1" aria-busy="true"><div class="app-loading" role="status">در حال آماده‌سازی برنامه...</div></main><footer class="app-footer"><span translate="no">توان</span> <span>تمرین خودت. مسیر خودت.</span><button data-act="help" class="btn ghost small">راهنمای شروع</button></footer></div>
+</div>
+<dialog id="modal" class="modal" aria-labelledby="modal-title"></dialog>
+<dialog id="help-modal" class="modal help-modal" aria-labelledby="help-modal-title" aria-describedby="help-modal-content"></dialog>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<input type="file" id="import-file" accept=".json,application/json" hidden>
+
+
+
+
+
+
+
+
+
+<script defer src="./assets/js/boot.js"></script>
+</body></html>

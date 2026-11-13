@@ -1,7 +1,7 @@
 (() => {
   'use strict';
   const main = document.querySelector('#main');
-  const version = '1.0.2';
+  const version = '1.0.3';
   const loadJson = async (path) => {
     const url = new URL(path, document.baseURI);
     url.searchParams.set('v', version);
@@ -38,7 +38,7 @@
       loadJson('data/food-catalog-usda-srlegacy-2018.json')
     ]);
     if (!Array.isArray(exercise.records) || !Array.isArray(food.keys) || !Array.isArray(food.rows)) throw new Error('data');
-    window.TavanData = { exerciseRecords: exercise.records, foodCatalog: food };
+    window.TavanData = { exerciseRecords: exercise.records, exerciseRevision: exercise.revision, foodCatalog: food };
     for (const path of [
       'assets/js/fit-core.js',
       'assets/js/exercise-catalog.js',

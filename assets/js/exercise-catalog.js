@@ -1,6 +1,6 @@
 (function(global){
 'use strict';
-const REVISION=1,records=global.TavanData.exerciseRecords;
+const REVISION=Number(global.TavanData.exerciseRevision)||2,records=global.TavanData.exerciseRecords;
 const norm=v=>String(v??'').normalize('NFKD').replace(/\p{M}/gu,'').replace(/ı/g,'i').replace(/[يىئ]/g,'ی').replace(/ك/g,'ک').replace(/[أإآ]/g,'ا').replace(/ؤ/g,'و').replace(/ة/g,'ه').replace(/[۰-۹]/g,c=>'۰۱۲۳۴۵۶۷۸۹'.indexOf(c)).replace(/[٠-٩]/g,c=>'٠١٢٣٤٥٦٧٨٩'.indexOf(c)).replace(/[\u200c\u200d_\-\/()[\],.]+/g,' ').replace(/\s+/g,' ').trim().toLowerCase();
 const compact=v=>norm(v).replace(/\s/g,'');
 const clone=x=>JSON.parse(JSON.stringify(x));
@@ -9,10 +9,11 @@ const oldNames={bench:'پرس سینه هالتر',incline:'پرس بالا سی
 const bySource=new Map(records.map(r=>[r.sourceId,r]));
 function install(state){
  if(state.catalogRevision>=REVISION)return state;
+ state.exercises=state.exercises.filter(e=>e.userModified||e.customName||e.favorite||String(e.notes||'').trim()||(e.source!=='free-exercise-db'&&!legacy[e.id]));
  const used=new Set(state.exercises.map(e=>e.id)),matched=new Set();
  for(const e of state.exercises){
   const source=e.sourceId||(legacy[e.id]||null);
-  let r=source?bySource.get(source):null;
+  let r=records.find(r=>String(r.id)===String(e.id))||(source?bySource.get(source):null);
   if(!r)r=records.find(r=>[r.name,r.englishName,...r.aliases].some(name=>compact(name)===compact(e.name)));
   if(!r)continue;
   matched.add(r.sourceId);

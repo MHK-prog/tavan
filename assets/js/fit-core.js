@@ -194,23 +194,7 @@
   }
 
   function initialState() {
-    const exercises = [
-      ['bench','پرس سینه هالتر','سینه','هالتر'],
-      ['incline','پرس بالا سینه دمبل','سینه','دمبل'],
-      ['fly','قفسه سینه دستگاه','سینه','دستگاه'],
-      ['lat','لت از جلو','پشت','سیم‌کش'],
-      ['row','قایقی نشسته','پشت','سیم‌کش'],
-      ['one-arm-row','زیربغل دمبل تک دست','پشت','دمبل'],
-      ['squat','اسکوات','پا','هالتر'],
-      ['leg-press','پرس پا','پا','دستگاه'],
-      ['leg-curl','پشت پا دستگاه','پا','دستگاه'],
-      ['calf','ساق پا ایستاده','ساق','دستگاه'],
-      ['shoulder-press','پرس سرشانه دمبل','سرشانه','دمبل'],
-      ['lateral','نشر جانب','سرشانه','دمبل'],
-      ['curl','جلو بازو دمبل','بازو','دمبل'],
-      ['pushdown','پشت بازو سیم‌کش','بازو','سیم‌کش'],
-      ['crunch','کرانچ','شکم','وزن بدن']
-    ].map(([id, name, muscle, equipment]) => ({id, name, muscle, equipment, notes:''}));
+    const exercises = [];
     const setTypes = [
       {id:'normal',name:'ست اصلی',description:'ست معمولی با ثبت وزنه و تکرار'},
       {id:'warmup',name:'گرم‌کردنی',description:'در آمار ست‌های اصلی و حجم اصلی محاسبه نمی‌شود'},
@@ -229,8 +213,6 @@
     for (const week of weekTypes) {
       plans[week.id] = {};
       for (let day = 0; day < 7; day++) plans[week.id][day] = [];
-      const sample = {0:['bench','incline','pushdown'],1:['lat','row','curl'],3:['squat','leg-press','leg-curl','calf'],5:['shoulder-press','lateral','crunch']};
-      for (const [day, ids] of Object.entries(sample)) plans[week.id][day] = ids.map(exerciseId => ({id:uid(),exerciseId,targetSets:2,repMin:6,repMax:10,rest:90,notes:''}));
     }
     return migrate({
       version:1, exercises, setTypes, weekTypes, plans, sessions:[],
